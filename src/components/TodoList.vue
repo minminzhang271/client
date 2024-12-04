@@ -62,7 +62,7 @@ import axios from 'axios'
 let { VITE_BASE_URL } = import.meta.env
 console.log('VITE_BASE_URL',VITE_BASE_URL)
 
-const API_URL = `${VITE_BASE_URL}/api`
+const API_URL = `${VITE_BASE_URL}:3000/api`
 const todos = ref([])
 const newTodo = ref('')
 
