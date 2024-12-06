@@ -63,8 +63,14 @@ let { VITE_BASE_URL } = import.meta.env
 console.log('VITE_BASE_URL',VITE_BASE_URL)
 
 const API_URL = `${VITE_BASE_URL}/api`
+
 const todos = ref([])
 const newTodo = ref('')
+const api = axios.create({
+  baseURL: `${API_URL}`,
+  timeout: 5000,
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }
+});
 
 // 格式化日期
 const formatDate = (date) => {
@@ -80,7 +86,7 @@ const formatDate = (date) => {
 // 获取所有待办事项
 const fetchTodos = async () => {
   try {
-    const response = await axios.get(`${API_URL}/todos`)
+    const response = await api.get(`${API_URL}/todos`)
     todos.value = response.data
   } catch (error) {
     console.error('获取待办事项失败:', error)
