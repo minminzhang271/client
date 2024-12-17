@@ -69,7 +69,8 @@ const newTodo = ref('')
 const api = axios.create({
   baseURL: `${API_URL}`,
   timeout: 5000,
-  headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+  withCredentials: true
 });
 
 // 格式化日期
